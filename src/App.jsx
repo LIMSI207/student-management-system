@@ -50,22 +50,46 @@ function App() {
   const totalStudents = students.length;
   const activeStudents = students.filter((student) => student.status === "Active").length;
   const inactiveStudents = students.filter((student) => student.status === "Inactive").length;
+const filteredStudents = useMemo(() => {
+  const searchText = String(search || "").trim().toLowerCase();
 
-  const filteredStudents = useMemo(() => {
-    const searchText = search.trim().toLowerCase();
-    return students.filter((student) => {
-      const matchesSearch =
-        student.name.toLowerCase().includes(searchText) ||
-        student.rollNumber.toLowerCase().includes(searchText) ||
-        student.email.toLowerCase().includes(searchText);
-      return (
-        matchesSearch &&
-        (!departmentFilter || student.department === departmentFilter) &&
-        (!yearFilter || student.year === yearFilter) &&
-        (!statusFilter || student.status === statusFilter)
-      );
-    });
-  }, [students, search, departmentFilter, yearFilter, statusFilter]);
+  return students.filter((student) => {
+    const name = String(student.name ?? "").toLowerCase();
+    const rollNumber = String(student.rollNumber ?? "").trim().toLowerCase();
+    const email = String(student.email ?? "").toLowerCase();
+
+    const matchesSearch =
+      searchText === "" ||
+      name.includes(searchText) ||
+      rollNumber.startsWith(searchText) ||
+      email.startsWith(searchText);
+
+    const matchesDepartment =
+      !departmentFilter ||
+      student.department === departmentFilter;
+
+    const matchesYear =
+      !yearFilter ||
+      String(student.year) === yearFilter;
+
+    const matchesStatus =
+      !statusFilter ||
+      student.status === statusFilter;
+
+    return (
+      matchesSearch &&
+      matchesDepartment &&
+      matchesYear &&
+      matchesStatus
+    );
+  });
+}, [
+  students,
+  search,
+  departmentFilter,
+  yearFilter,
+  statusFilter,
+]);
 
   const openAddForm = () => {
     setEditingStudent(null);
