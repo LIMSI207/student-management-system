@@ -247,9 +247,7 @@ const filteredStudents = useMemo(() => {
                 }}
               />
             </label>
-            <button className="notification-button" type="button" aria-label="Notifications" onClick={() => window.alert("You are all caught up!")}>
-              ♧<span className="notification-dot" />
-            </button>
+            
             <div className="profile">
               <div className="profile-circle">LP</div>
               <span>Limsi Patel</span>
