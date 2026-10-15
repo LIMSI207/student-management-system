@@ -1,86 +1,74 @@
-Student Management System
+# Student Management System
 
-A responsive Student Management System built using React and JavaScript. This application helps users manage student records through a simple and user-friendly dashboard.
+A responsive student management dashboard built using React and CSS.
 
-Features
+## Features
 
-- Dashboard with total, active, and inactive student counts.
-- Add new student records.
-- View all students in a table.
-- Edit existing student details.
-- Delete students with confirmation.
-- Search students by name, roll number, and email.
-- Filter students by department, year, and status.
-- Form validation for email, phone number, and duplicate roll numbers.
-- Store student records in LocalStorage.
-- Responsive user interface.
+- Dashboard with total, active, and inactive student counts
+- Add new student records
+- View student details
+- Edit existing student records
+- Delete students with confirmation
+- Search students by name, roll number, and email
+- Filter students by department, year, and status
+- Form validation for required fields, email, phone number, and duplicate roll numbers
+- LocalStorage for saving student records in the browser
+- Success and error notifications
+- Reusable React components
+- Responsive purple-themed user interface
 
-Technologies Used
+## Technologies Used
 
-- React.js
+- React
 - JavaScript
-- HTML5
-- CSS3
+- CSS
 - Vite
-- Git and GitHub
-- LocalStorage
+- Browser LocalStorage
 
-Student Details
+## Installation
 
-Each student record contains:
-
-- Name
-- Roll Number
-- Email
-- Phone
-- Department
-- Year
-- Status (Active/Inactive)
-
-Installation and Setup
-
-1. Clone the repository:
-   
-   git clone https://github.com/LIMSI207/Student-management-system.git
-
-2. Open the project folder:
-   
-   cd Student-management-system
-
+1. Clone or download this repository.
+2. Open the project folder in VS Code.
 3. Install dependencies:
-   
+
+   ```bash
    npm install
+   ```
 
 4. Start the development server:
-   
+
+   ```bash
    npm run dev
+   ```
 
-5. Open the local URL shown in your terminal.
+5. Open the local URL shown in the terminal.
 
-Data Storage
+## Data Storage
 
-Student records are stored in the browser's LocalStorage, so the data remains available after refreshing the page in the same browser.
+Student records are stored in the browser's LocalStorage. Data remains available in the same browser unless its storage is cleared or the application changes its storage key. LocalStorage is not a shared database.
 
-Project Structure
+## Project Structure
 
-student-management-system/
-├── public/
-├── src/
-│   ├── components/
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── package.json
-└── README.md
+```text
+src/
+  components/
+    Sidebar.jsx
+    Header.jsx
+    Dashboard.jsx
+    StudentTable.jsx
+    StudentForm.jsx
+    Toast.jsx
+    ConfirmDialog.jsx
+  utils/
+    students.js
+  App.jsx
+  App.css
+```
 
-Future Improvements
+## Testing
 
-- Backend and database integration.
-- User authentication.
-- Export student records to CSV or PDF.
+Test adding, editing, deleting, searching, filtering, form validation, and persistence after refreshing the browser.
 
-Author
+## Author
 
-Limsi Patel
+Student project — Student Management System
