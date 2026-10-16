@@ -9,7 +9,6 @@ import StudentTable from "./components/StudentTable";
 import StudentForm from "./components/StudentForm";
 import Toast from "./components/Toast";
 import ConfirmDialog from "./components/ConfirmDialog";
-
 import {
   loadStudentsFromStorage,
   saveStudentsToStorage,
